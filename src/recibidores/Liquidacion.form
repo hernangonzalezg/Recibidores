@@ -29,7 +29,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel3" min="-2" pref="625" max="-2" attributes="0"/>
+          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,8 +49,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanel4" min="-2" pref="640" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -136,14 +136,14 @@
                                           <Component id="cmbOv" min="-2" pref="115" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="lblFechaLiquidacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cmbFechaLiquidacion" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="cmbFechaLiquidacion" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="lblOv" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="830" max="32767" attributes="0"/>
+                          <EmptySpace pref="786" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -167,13 +167,15 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cmbRecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbNave" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtViaje" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFechaLiquidacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbFechaLiquidacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbOv" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cmbRecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbNave" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtViaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFechaLiquidacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbOv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cmbFechaLiquidacion" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanel5" max="32767" attributes="0"/>
@@ -209,22 +211,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Recibidor"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cmbFechaLiquidacion">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="14" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="2">
-                        <StringItem index="0" value="01/01/2018"/>
-                        <StringItem index="1" value="02/01/2018"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmbRecibidor">
                   <Properties>
@@ -286,17 +272,17 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblFechaVenta" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="cmbFechaVenta" min="-2" pref="107" max="-2" attributes="0"/>
+                                      <Component id="cmbFechaVenta" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblGastosrecibidor" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" pref="329" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="lblMonedaventa" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="cbmMonedaventa" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="57" max="32767" attributes="0"/>
                                       <Component id="lblParidadajustada" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblParidadventa" min="-2" max="-2" attributes="0"/>
@@ -320,9 +306,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblFechaVenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmbFechaVenta" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cmbFechaVenta" max="32767" attributes="0"/>
+                                          <Component id="lblFechaVenta" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="lblGastosrecibidor" min="-2" max="-2" attributes="0"/>
@@ -343,8 +329,8 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jPanel2" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" pref="437" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -388,25 +374,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Fecha Venta"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="cmbFechaVenta">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="0"/>
-                        </Property>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="2">
-                            <StringItem index="0" value="01/01/2018"/>
-                            <StringItem index="1" value="02/01/2018"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbFechaVentaActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblMonedaventa">
                       <Properties>
@@ -1108,6 +1075,8 @@
                         <Property name="text" type="java.lang.String" value="Gastos del Recibidor"/>
                       </Properties>
                     </Component>
+                    <Component class="datechooser.beans.DateChooserCombo" name="cmbFechaVenta">
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblTemporada">
@@ -1149,6 +1118,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="OV"/>
                   </Properties>
+                </Component>
+                <Component class="datechooser.beans.DateChooserCombo" name="cmbFechaLiquidacion">
                 </Component>
               </SubComponents>
             </Container>
