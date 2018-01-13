@@ -62,7 +62,6 @@ public class Liquidacion extends javax.swing.JFrame {
         lblDesTemporada = new javax.swing.JLabel();
         lblFechaLiquidacion = new javax.swing.JLabel();
         lblRecibir = new javax.swing.JLabel();
-        cmbFechaLiquidacion = new javax.swing.JComboBox<>();
         cmbRecibidor = new javax.swing.JComboBox<>();
         lblNave = new javax.swing.JLabel();
         cmbNave = new javax.swing.JComboBox<>();
@@ -72,7 +71,6 @@ public class Liquidacion extends javax.swing.JFrame {
         cbmMonedaventa = new javax.swing.JComboBox<>();
         txtParidadajustada = new javax.swing.JTextField();
         lblFechaVenta = new javax.swing.JLabel();
-        cmbFechaVenta = new javax.swing.JComboBox<>();
         lblMonedaventa = new javax.swing.JLabel();
         lblParidadajustada = new javax.swing.JLabel();
         lblParidadventa = new javax.swing.JLabel();
@@ -118,10 +116,12 @@ public class Liquidacion extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         lblGastosrecibidor = new javax.swing.JLabel();
+        cmbFechaVenta = new datechooser.beans.DateChooserCombo();
         lblTemporada = new javax.swing.JLabel();
         txtViaje = new javax.swing.JTextField();
         cmbOv = new javax.swing.JComboBox<>();
         lblOv = new javax.swing.JLabel();
+        cmbFechaLiquidacion = new datechooser.beans.DateChooserCombo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Liquidacion"); // NOI18N
@@ -145,9 +145,6 @@ public class Liquidacion extends javax.swing.JFrame {
 
         lblRecibir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblRecibir.setText("Recibidor");
-
-        cmbFechaLiquidacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbFechaLiquidacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01/01/2018", "02/01/2018" }));
 
         cmbRecibidor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbRecibidor.addItemListener(new java.awt.event.ItemListener() {
@@ -183,14 +180,6 @@ public class Liquidacion extends javax.swing.JFrame {
 
         lblFechaVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFechaVenta.setText("Fecha Venta");
-
-        cmbFechaVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmbFechaVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01/01/2018", "02/01/2018" }));
-        cmbFechaVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbFechaVentaActionPerformed(evt);
-            }
-        });
 
         lblMonedaventa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblMonedaventa.setText("Moneda venta");
@@ -558,15 +547,15 @@ public class Liquidacion extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblFechaVenta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblGastosrecibidor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 329, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblMonedaventa)
                         .addGap(18, 18, 18)
                         .addComponent(cbmMonedaventa, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                         .addComponent(lblParidadajustada))
                     .addComponent(lblParidadventa))
                 .addGap(92, 92, 92)
@@ -584,9 +573,9 @@ public class Liquidacion extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFechaVenta)
-                            .addComponent(cmbFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbFechaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblFechaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblGastosrecibidor))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -601,8 +590,8 @@ public class Liquidacion extends javax.swing.JFrame {
                             .addComponent(lblMonedaventa))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(205, 205, 205))
         );
 
         lblTemporada.setEnabled(false);
@@ -655,10 +644,10 @@ public class Liquidacion extends javax.swing.JFrame {
                                 .addComponent(cmbOv, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
                                 .addComponent(lblFechaLiquidacion)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbFechaLiquidacion, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbFechaLiquidacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblOv))))
-                .addContainerGap(830, Short.MAX_VALUE))
+                .addContainerGap(786, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,13 +665,14 @@ public class Liquidacion extends javax.swing.JFrame {
                         .addComponent(lblNumeroViaje)
                         .addComponent(lblOv)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbRecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbNave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtViaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechaLiquidacion)
-                    .addComponent(cmbFechaLiquidacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbOv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbRecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbNave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtViaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFechaLiquidacion)
+                        .addComponent(cmbOv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbFechaLiquidacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -722,8 +712,8 @@ public class Liquidacion extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -734,7 +724,7 @@ public class Liquidacion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -763,10 +753,6 @@ public class Liquidacion extends javax.swing.JFrame {
     private void txtAnticipoparidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnticipoparidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnticipoparidadActionPerformed
-
-    private void cmbFechaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFechaVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFechaVentaActionPerformed
 
     private void cmbRecibidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRecibidorActionPerformed
 
@@ -869,8 +855,8 @@ public class Liquidacion extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cbmMonedaventa;
-    private javax.swing.JComboBox<String> cmbFechaLiquidacion;
-    private javax.swing.JComboBox<String> cmbFechaVenta;
+    private datechooser.beans.DateChooserCombo cmbFechaLiquidacion;
+    private datechooser.beans.DateChooserCombo cmbFechaVenta;
     private javax.swing.JComboBox<EntidadNave> cmbNave;
     private javax.swing.JComboBox<EntidadOv> cmbOv;
     private javax.swing.JComboBox<EntidadRecibidor> cmbRecibidor;
