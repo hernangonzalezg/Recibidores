@@ -840,6 +840,7 @@ public class Liquidacion extends javax.swing.JFrame {
         lotes.txtRecibidor.setText(Recibidor.getNombre());
         lotes.txtNave.setText(Nave.getNombrenave());
         lotes.txtViaje.setText(this.txtViaje.getText());
+        lotes.txfResultadonetous.setText(this.txtResultadonetous.getText());
         
     }//GEN-LAST:event_btnLotesActionPerformed
 
