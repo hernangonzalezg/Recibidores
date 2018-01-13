@@ -5,6 +5,7 @@
  */
 package recibidores;
 
+import template.MiModelo;
 import Entidad.EntidadNave;
 import Entidad.EntidadOv;
 import Entidad.EntidadRecibidor;
@@ -12,12 +13,15 @@ import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import javax.swing.table.DefaultTableModel;
 import modelo.ConexionBD;
 import modelo.ModeloNave;
 import modelo.ModeloOv;
 import modelo.ModeloRecibidor;
-
+import java.text.DecimalFormat;
+import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 
 public class Liquidacion extends javax.swing.JFrame {
 
@@ -42,14 +46,18 @@ public class Liquidacion extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Liquidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //FIN CAMBIA A WINDOWS
-        
+     
         initComponents();
             cmbRecibidor.removeAllItems();
             cmbNave.removeAllItems();
             
             lblTemporada.setText(CodigoTemporada);
             ModeloRecibidor MR = new ModeloRecibidor();
-            MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());      
+            MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
+                       
+            //BLOQUEO DE CAJAS DE TEXTO
+            //txtTotalgastosus.setEditable(false); 
+            txtResultadonetous.setEditable(false); 
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,9 +75,7 @@ public class Liquidacion extends javax.swing.JFrame {
         cmbNave = new javax.swing.JComboBox<>();
         lblNumeroViaje = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        txtParidadventa = new javax.swing.JTextField();
         cbmMonedaventa = new javax.swing.JComboBox<>();
-        txtParidadajustada = new javax.swing.JTextField();
         lblFechaVenta = new javax.swing.JLabel();
         lblMonedaventa = new javax.swing.JLabel();
         lblParidadajustada = new javax.swing.JLabel();
@@ -78,18 +84,8 @@ public class Liquidacion extends javax.swing.JFrame {
         spnPorcentaje = new javax.swing.JSpinner();
         lblAnticipo = new javax.swing.JLabel();
         lblValormg = new javax.swing.JLabel();
-        txtAnticipoparidad = new javax.swing.JTextField();
-        txtValormgparidad = new javax.swing.JTextField();
         lblPorcentaje = new javax.swing.JLabel();
         lblTotalventaus = new javax.swing.JLabel();
-        txtTotalventaus = new javax.swing.JTextField();
-        txtTotalgastosus = new javax.swing.JTextField();
-        txtSaldoliqus = new javax.swing.JTextField();
-        txtResultadonetous = new javax.swing.JTextField();
-        txtValormgus = new javax.swing.JTextField();
-        txtSaldoliqparidad = new javax.swing.JTextField();
-        txtSaldoliq = new javax.swing.JTextField();
-        txtDistribucionunifrutti = new javax.swing.JTextField();
         lblTotalgastosus = new javax.swing.JLabel();
         lblResultadonetous = new javax.swing.JLabel();
         lblAnticipous = new javax.swing.JLabel();
@@ -97,16 +93,12 @@ public class Liquidacion extends javax.swing.JFrame {
         lblSaldoliqus = new javax.swing.JLabel();
         lblSaldoliq = new javax.swing.JLabel();
         lblDistribucionexcedentes = new javax.swing.JLabel();
-        txtAnticipomonedaorigen = new javax.swing.JTextField();
-        lblValormgmonedaorigen = new javax.swing.JTextField();
-        txtDistribucionrecibidor = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblGastos = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 32767));
         jSeparator1 = new javax.swing.JSeparator();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 32767));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 0), new java.awt.Dimension(450, 32767));
-        txtAnticipous = new javax.swing.JTextField();
         lblDistribucionrecibidor = new javax.swing.JLabel();
         lblDistribucionunifrutti = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -115,8 +107,24 @@ public class Liquidacion extends javax.swing.JFrame {
         btnLotes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        txtAnticipoparidad = new javax.swing.JFormattedTextField();
+        txtValormgparidad = new javax.swing.JFormattedTextField();
+        txtSaldoliqparidad = new javax.swing.JFormattedTextField();
+        txtAnticipomonedaorigen = new javax.swing.JFormattedTextField();
+        lblValormgmonedaorigen = new javax.swing.JFormattedTextField();
+        txtTotalventaus = new javax.swing.JFormattedTextField();
+        txtTotalgastosus = new javax.swing.JFormattedTextField();
+        txtResultadonetous = new javax.swing.JFormattedTextField();
+        txtAnticipous = new javax.swing.JFormattedTextField();
+        txtValormgus = new javax.swing.JFormattedTextField();
+        txtSaldoliqus = new javax.swing.JFormattedTextField();
+        txtSaldoliq = new javax.swing.JFormattedTextField();
+        txtDistribucionrecibidor = new javax.swing.JFormattedTextField();
+        txtDistribucionunifrutti = new javax.swing.JFormattedTextField();
         lblGastosrecibidor = new javax.swing.JLabel();
         cmbFechaVenta = new datechooser.beans.DateChooserCombo();
+        txtParidadventa = new javax.swing.JFormattedTextField();
+        txtParidadajustada = new javax.swing.JFormattedTextField();
         lblTemporada = new javax.swing.JLabel();
         txtViaje = new javax.swing.JTextField();
         cmbOv = new javax.swing.JComboBox<>();
@@ -171,12 +179,8 @@ public class Liquidacion extends javax.swing.JFrame {
         lblNumeroViaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNumeroViaje.setText("Viaje");
 
-        txtParidadventa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         cbmMonedaventa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbmMonedaventa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolas U.S.A.", "Euro", "Yen" }));
-
-        txtParidadajustada.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblFechaVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFechaVenta.setText("Fecha Venta");
@@ -201,46 +205,11 @@ public class Liquidacion extends javax.swing.JFrame {
         lblValormg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblValormg.setText("Valor M/G");
 
-        txtAnticipoparidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtAnticipoparidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnticipoparidadActionPerformed(evt);
-            }
-        });
-
-        txtValormgparidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         lblPorcentaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPorcentaje.setText("% Distrib. Excedentes");
 
         lblTotalventaus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTotalventaus.setText("Total Ventas US$");
-
-        txtTotalventaus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtTotalventaus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTotalventausActionPerformed(evt);
-            }
-        });
-
-        txtTotalgastosus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtSaldoliqus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtResultadonetous.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtResultadonetous.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtResultadonetousActionPerformed(evt);
-            }
-        });
-
-        txtValormgus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtSaldoliqparidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtSaldoliq.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtDistribucionunifrutti.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblTotalgastosus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTotalgastosus.setText("Total Gastos US$");
@@ -263,22 +232,6 @@ public class Liquidacion extends javax.swing.JFrame {
         lblDistribucionexcedentes.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lblDistribucionexcedentes.setText("Distribución Excedentes");
 
-        txtAnticipomonedaorigen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtAnticipomonedaorigen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnticipomonedaorigenActionPerformed(evt);
-            }
-        });
-
-        lblValormgmonedaorigen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txtDistribucionrecibidor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDistribucionrecibidor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDistribucionrecibidorActionPerformed(evt);
-            }
-        });
-
         tblGastos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -300,7 +253,7 @@ public class Liquidacion extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, false
+                false, false, true, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -308,15 +261,25 @@ public class Liquidacion extends javax.swing.JFrame {
             }
         });
         tblGastos.setRowHeight(26);
+        tblGastos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tblGastosFocusGained(evt);
+            }
+        });
+        tblGastos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblGastosMouseClicked(evt);
+            }
+        });
+        tblGastos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblGastosKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tblGastosKeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblGastos);
-        if (tblGastos.getColumnModel().getColumnCount() > 0) {
-            tblGastos.getColumnModel().getColumn(0).setHeaderValue("Gasto Generico");
-            tblGastos.getColumnModel().getColumn(1).setHeaderValue("Gastos");
-            tblGastos.getColumnModel().getColumn(2).setHeaderValue("Monto M/C");
-            tblGastos.getColumnModel().getColumn(3).setHeaderValue("Paridad");
-            tblGastos.getColumnModel().getColumn(4).setHeaderValue("Total US$");
-            tblGastos.getColumnModel().getColumn(5).setHeaderValue("Unitario");
-        }
 
         filler1.setBackground(new java.awt.Color(0, 0, 0));
         filler1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -326,8 +289,6 @@ public class Liquidacion extends javax.swing.JFrame {
 
         filler3.setBackground(new java.awt.Color(0, 0, 0));
         filler3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        txtAnticipous.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblDistribucionrecibidor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblDistribucionrecibidor.setText("Recibidor");
@@ -362,6 +323,49 @@ public class Liquidacion extends javax.swing.JFrame {
             }
         });
 
+        txtAnticipoparidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtAnticipoparidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnticipoparidadActionPerformed(evt);
+            }
+        });
+        txtAnticipoparidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAnticipoparidadKeyTyped(evt);
+            }
+        });
+
+        txtValormgparidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtSaldoliqparidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtAnticipomonedaorigen.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        lblValormgmonedaorigen.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtTotalventaus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtTotalgastosus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtResultadonetous.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtResultadonetous.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtResultadonetousMouseClicked(evt);
+            }
+        });
+
+        txtAnticipous.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtValormgus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtSaldoliqus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtSaldoliq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtDistribucionrecibidor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        txtDistribucionunifrutti.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -377,20 +381,6 @@ public class Liquidacion extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDistribucionexcedentes)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblResultadonetous)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lblSaldoliqus)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSaldoliqus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblAnticipous)
-                                        .addComponent(lblValormgus))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtAnticipous, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtValormgus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(txtResultadonetous, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblTotalgastosus)
@@ -401,33 +391,42 @@ public class Liquidacion extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(txtAnticipoparidad)
-                                                .addComponent(txtValormgparidad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtValormgparidad, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))
                                         .addComponent(lblPorcentaje)
                                         .addComponent(lblTotalventaus))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblValormgmonedaorigen)
-                                        .addComponent(txtAnticipomonedaorigen)
-                                        .addComponent(spnPorcentaje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtTotalventaus)
-                                        .addComponent(txtTotalgastosus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(spnPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 50, Short.MAX_VALUE))
+                                        .addComponent(txtAnticipomonedaorigen, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtTotalgastosus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtTotalventaus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblValormgmonedaorigen, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(filler3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lblSaldoliq)
-                                    .addGap(52, 52, 52)
-                                    .addComponent(txtSaldoliqparidad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblAnticipous)
+                                        .addComponent(lblValormgus)
+                                        .addComponent(lblResultadonetous))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSaldoliq, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(lblDistribucionrecibidor)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtDistribucionrecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtAnticipous, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtResultadonetous, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtValormgus, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(lblSaldoliq)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtSaldoliqparidad, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblSaldoliqus))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblDistribucionunifrutti)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtDistribucionunifrutti, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtSaldoliqus)
+                                        .addComponent(txtSaldoliq, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -440,7 +439,15 @@ public class Liquidacion extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(lblDistribucionrecibidor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDistribucionrecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDistribucionunifrutti)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDistribucionunifrutti, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -448,69 +455,67 @@ public class Liquidacion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAnticipo)
-                            .addComponent(txtAnticipoparidad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAnticipo)
+                        .addGap(13, 13, 13)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtValormgparidad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblValormg))
-                        .addGap(12, 12, 12))
+                            .addComponent(lblValormg)
+                            .addComponent(txtValormgparidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(111, 111, 111))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtAnticipomonedaorigen, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblValormgmonedaorigen, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAnticipoparidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnticipomonedaorigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addComponent(lblValormgmonedaorigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(spnPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPorcentaje))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalventaus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTotalventaus))
+                            .addComponent(lblTotalventaus)
+                            .addComponent(txtTotalventaus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalgastosus, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTotalgastosus))
+                            .addComponent(lblTotalgastosus)
+                            .addComponent(txtTotalgastosus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblResultadonetous)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblResultadonetous)
+                            .addComponent(txtResultadonetous, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblAnticipous)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblValormgus))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtResultadonetous, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(txtAnticipous, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValormgus, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblAnticipous))
+                    .addComponent(txtAnticipous, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValormgus)
+                    .addComponent(txtValormgus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSaldoliqus)
                     .addComponent(txtSaldoliqus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSaldoliqparidad)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblSaldoliq)
-                        .addComponent(txtSaldoliq)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSaldoliq)
+                    .addComponent(txtSaldoliqparidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSaldoliq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDistribucionexcedentes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDistribucionunifrutti, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDistribucionrecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDistribucionrecibidor)
-                    .addComponent(lblDistribucionunifrutti))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblDistribucionunifrutti)
+                    .addComponent(txtDistribucionrecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDistribucionunifrutti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -531,11 +536,20 @@ public class Liquidacion extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblGastosrecibidor.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblGastosrecibidor.setText("Gastos del Recibidor");
+
+        txtParidadventa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtParidadventa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtParidadventaActionPerformed(evt);
+            }
+        });
+
+        txtParidadajustada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -560,8 +574,8 @@ public class Liquidacion extends javax.swing.JFrame {
                     .addComponent(lblParidadventa))
                 .addGap(92, 92, 92)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtParidadajustada, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(txtParidadventa))
+                    .addComponent(txtParidadventa)
+                    .addComponent(txtParidadajustada, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addGap(475, 475, 475))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1295, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -579,19 +593,20 @@ public class Liquidacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblGastosrecibidor))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtParidadventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblParidadventa))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtParidadajustada, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblParidadajustada)
-                            .addComponent(cbmMonedaventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMonedaventa))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblParidadventa)
+                            .addComponent(txtParidadventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblParidadajustada)
+                                .addComponent(cbmMonedaventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblMonedaventa))
+                            .addComponent(txtParidadajustada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(205, 205, 205))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
         );
 
         lblTemporada.setEnabled(false);
@@ -656,14 +671,16 @@ public class Liquidacion extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDesTemporada)
                     .addComponent(lblTemporada))
-                .addGap(15, 15, 15)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblRecibir)
                         .addComponent(lblNave))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNumeroViaje)
-                        .addComponent(lblOv)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNumeroViaje)
+                            .addComponent(lblOv))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -712,19 +729,23 @@ public class Liquidacion extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1326, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -733,26 +754,6 @@ public class Liquidacion extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void txtDistribucionrecibidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDistribucionrecibidorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDistribucionrecibidorActionPerformed
-
-    private void txtAnticipomonedaorigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnticipomonedaorigenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnticipomonedaorigenActionPerformed
-
-    private void txtResultadonetousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultadonetousActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResultadonetousActionPerformed
-
-    private void txtTotalventausActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalventausActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTotalventausActionPerformed
-
-    private void txtAnticipoparidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnticipoparidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnticipoparidadActionPerformed
 
     private void cmbRecibidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRecibidorActionPerformed
 
@@ -770,7 +771,7 @@ public class Liquidacion extends javax.swing.JFrame {
             if (Recibidor.getTemporada()!= ""){
                 //CARGAR TABLA
                 try{
-                    DefaultTableModel modelo = new DefaultTableModel();
+                    MiModelo modelo = new MiModelo();
                     tblGastos.setModel(modelo);
 
                     ConexionBD cnn = new ConexionBD();
@@ -788,6 +789,9 @@ public class Liquidacion extends javax.swing.JFrame {
                     modelo.addColumn("Paridad");
                     modelo.addColumn("Total US$");
                     modelo.addColumn("Unitario");
+                    
+                    
+                    
 
                     //                int[] anchos = {50,200};
                     //
@@ -809,6 +813,7 @@ public class Liquidacion extends javax.swing.JFrame {
                 //CARGAR TABLA
             }
         }
+        
     }//GEN-LAST:event_cmbRecibidorItemStateChanged
 
     private void cmbNaveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNaveItemStateChanged
@@ -850,6 +855,66 @@ public class Liquidacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbOvItemStateChanged
 
+    private void txtAnticipoparidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnticipoparidadActionPerformed
+        
+    }//GEN-LAST:event_txtAnticipoparidadActionPerformed
+
+    private void txtAnticipoparidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnticipoparidadKeyTyped
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnticipoparidadKeyTyped
+
+    private void txtParidadventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParidadventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtParidadventaActionPerformed
+
+    private void txtResultadonetousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtResultadonetousMouseClicked
+        calculoVentaGasto();
+    }//GEN-LAST:event_txtResultadonetousMouseClicked
+
+    private void tblGastosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblGastosKeyReleased
+        
+    
+    }//GEN-LAST:event_tblGastosKeyReleased
+
+    private void tblGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGastosMouseClicked
+        int fila = tblGastos.rowAtPoint(evt.getPoint());
+        int columna = tblGastos.columnAtPoint(evt.getPoint());
+        if (fila > -1){
+            String valor = String.valueOf(tblGastos.getValueAt(fila, columna)).replace(" ", "");
+            txtTotalventaus.setText(valor);
+        }
+    }//GEN-LAST:event_tblGastosMouseClicked
+
+    private void tblGastosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblGastosKeyTyped
+        //int columna = tblGastos.getEditingColumn();
+        //int fila = tblGastos.getEditingRow();
+        
+        //int columna = tblGastos.getSelectedColumn();
+        //int fila = tblGastos.get.getSelectedRow();
+        
+        //System.out.println("fila: "+fila);
+        //System.out.println("columna: "+columna);
+    }//GEN-LAST:event_tblGastosKeyTyped
+
+    private void tblGastosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblGastosFocusGained
+        
+    }//GEN-LAST:event_tblGastosFocusGained
+    
+    private void calculoVentaGasto(){
+        
+        if(!"".equals(txtTotalventaus.getText()) && !"".equals(txtTotalgastosus.getText())){
+            
+            String valorVenta = txtTotalventaus.getText().replace(".", "");
+            String valorGatos = txtTotalgastosus.getText().replace(".", "");
+            int sumatoria = Integer.parseInt(valorVenta)-Integer.parseInt(valorGatos);
+           
+            DecimalFormat formatea = new DecimalFormat("###,###.##");
+            String calculo = String.valueOf(formatea.format(sumatoria));
+            txtResultadonetous.setText(calculo);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLotes;
     private javax.swing.JButton btnSalir;
@@ -898,25 +963,25 @@ public class Liquidacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalgastosus;
     private javax.swing.JLabel lblTotalventaus;
     private javax.swing.JLabel lblValormg;
-    private javax.swing.JTextField lblValormgmonedaorigen;
+    private javax.swing.JFormattedTextField lblValormgmonedaorigen;
     private javax.swing.JLabel lblValormgus;
     private javax.swing.JSpinner spnPorcentaje;
     private javax.swing.JTable tblGastos;
-    private javax.swing.JTextField txtAnticipomonedaorigen;
-    private javax.swing.JTextField txtAnticipoparidad;
-    private javax.swing.JTextField txtAnticipous;
-    private javax.swing.JTextField txtDistribucionrecibidor;
-    private javax.swing.JTextField txtDistribucionunifrutti;
-    private javax.swing.JTextField txtParidadajustada;
-    private javax.swing.JTextField txtParidadventa;
-    private javax.swing.JTextField txtResultadonetous;
-    private javax.swing.JTextField txtSaldoliq;
-    private javax.swing.JTextField txtSaldoliqparidad;
-    private javax.swing.JTextField txtSaldoliqus;
-    private javax.swing.JTextField txtTotalgastosus;
-    private javax.swing.JTextField txtTotalventaus;
-    private javax.swing.JTextField txtValormgparidad;
-    private javax.swing.JTextField txtValormgus;
+    private javax.swing.JFormattedTextField txtAnticipomonedaorigen;
+    private javax.swing.JFormattedTextField txtAnticipoparidad;
+    private javax.swing.JFormattedTextField txtAnticipous;
+    private javax.swing.JFormattedTextField txtDistribucionrecibidor;
+    private javax.swing.JFormattedTextField txtDistribucionunifrutti;
+    private javax.swing.JFormattedTextField txtParidadajustada;
+    private javax.swing.JFormattedTextField txtParidadventa;
+    private javax.swing.JFormattedTextField txtResultadonetous;
+    private javax.swing.JFormattedTextField txtSaldoliq;
+    private javax.swing.JFormattedTextField txtSaldoliqparidad;
+    private javax.swing.JFormattedTextField txtSaldoliqus;
+    private javax.swing.JFormattedTextField txtTotalgastosus;
+    private javax.swing.JFormattedTextField txtTotalventaus;
+    private javax.swing.JFormattedTextField txtValormgparidad;
+    private javax.swing.JFormattedTextField txtValormgus;
     private javax.swing.JTextField txtViaje;
     // End of variables declaration//GEN-END:variables
 }
