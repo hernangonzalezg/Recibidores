@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeString.substring;
 
 /**
  *
@@ -23,12 +24,12 @@ public class ModeloTemporada {
         try{
             ConexionBD cnn = new ConexionBD();
             cnn.conectar();
-            ResultSet rs = cnn.consulta("SELECT * FROM UNIDATOS.GTEMPOR0 ORDER BY IVE9ST DESC, IVC7DS DESC");
+            ResultSet rs = cnn.consulta("SELECT * FROM UNIDATOS.GTEMPOR0 ORDER BY IVE9ST DESC, IVC7DS DESC FETCH FIRST 8 ROWS ONLY");
             while(rs.next()){
                 cmbTemporada.addItem(
                         new EntidadTemporada(
                                 rs.getString("IVCTEM"),
-                                rs.getString("IVC7DS"),
+                                substring(rs.getString("IVC7DS"), 0,14),
                                 rs.getString("IVE9ST")
                         )
                 );

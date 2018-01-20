@@ -104,8 +104,8 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(231, 231, 231)
                         .addComponent(lblTemporada)
                         .addGap(18, 18, 18)
-                        .addComponent(cmbTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(334, Short.MAX_VALUE))
+                        .addComponent(cmbTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
