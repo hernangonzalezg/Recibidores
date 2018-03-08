@@ -177,12 +177,22 @@ public class Liquidacion extends javax.swing.JFrame {
                 cmbNaveItemStateChanged(evt);
             }
         });
+        cmbNave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNaveActionPerformed(evt);
+            }
+        });
 
         lblNumeroViaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNumeroViaje.setText("Viaje");
 
         cbmMonedaventa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbmMonedaventa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dolas U.S.A.", "Euro", "Yen" }));
+        cbmMonedaventa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmMonedaventaActionPerformed(evt);
+            }
+        });
 
         lblFechaVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFechaVenta.setText("Fecha Venta");
@@ -379,7 +389,7 @@ public class Liquidacion extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,8 +437,8 @@ public class Liquidacion extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtAnticipous, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtResultadonetous, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtValormgus, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)))
+                                        .addComponent(txtValormgus, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                        .addComponent(txtResultadonetous, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -455,7 +465,7 @@ public class Liquidacion extends javax.swing.JFrame {
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(86, 86, 86)
                         .addComponent(lblDistribucionrecibidor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtDistribucionrecibidor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDistribucionunifrutti)
@@ -467,9 +477,9 @@ public class Liquidacion extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblParidad)
-                    .addComponent(lblValormonorigen))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblParidad, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblValormonorigen, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -924,6 +934,14 @@ public class Liquidacion extends javax.swing.JFrame {
     private void tblGastosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblGastosFocusGained
         
     }//GEN-LAST:event_tblGastosFocusGained
+
+    private void cbmMonedaventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmMonedaventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmMonedaventaActionPerformed
+
+    private void cmbNaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNaveActionPerformed
     
     private void calculoVentaGasto(){
         

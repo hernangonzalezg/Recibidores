@@ -50,7 +50,7 @@ public class EntidadRecibidor {
     
     @Override
     public String toString(){
-        return this.nombre;
+        return this.codigorec + " - " + this.nombre;
     }
     
 }
