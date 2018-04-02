@@ -21,11 +21,12 @@ public class Tablalotes {
     public void visualizar(JTable tabla){
        
         tabla.setDefaultRenderer(Object.class, new Render());
-        DefaultTableModel dt = new DefaultTableModel(new String[]{"temporada","correlativo","numeroov","nunerolote","recibidor","especie","grupo","subgrupo","variedad","peso","dimension","tipoenvase","categoria","embalaje","etiqueta","condicion","tipofrio","calibre","cajas"});
+        /*DefaultTableModel dt = new DefaultTableModel(new String[]{"temporada","correlativo","numeroov","nunerolote","recibidor","especie","grupo","subgrupo","variedad","peso","dimension","tipoenvase","categoria","embalaje","etiqueta","condicion","tipofrio","calibre","cajas"});
 
             Class[] type = new Class[]{
                 java.lang.Object.class,java.lang.Object.class,
             }
+*/
     }
     
 }
