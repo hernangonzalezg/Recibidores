@@ -49,16 +49,17 @@ public class Liquidacion extends javax.swing.JFrame {
         //FIN CAMBIA A WINDOWS
      
         initComponents();
-            cmbRecibidor.removeAllItems();
-            cmbNave.removeAllItems();
-            
-            lblTemporada.setText(CodigoTemporada);
-            ModeloRecibidor MR = new ModeloRecibidor();
-            MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
-                       
-            //BLOQUEO DE CAJAS DE TEXTO
-            //txtTotalgastosus.setEditable(false); 
-            txtResultadonetous.setEditable(false); 
+        cmbRecibidor.removeAllItems();
+        cmbNave.removeAllItems();
+
+        lblTemporada.setText(CodigoTemporada);
+        ModeloRecibidor MR = new ModeloRecibidor();
+        MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
+
+        //BLOQUEO DE CAJAS DE TEXTO
+        //txtTotalgastosus.setEditable(false); 
+        txtResultadonetous.setEditable(false); 
+        spnPorcentaje.setValue(100);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -315,11 +316,11 @@ public class Liquidacion extends javax.swing.JFrame {
             }
         });
         tblGastos.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                tblGastosInputMethodTextChanged(evt);
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 tblGastosCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tblGastosInputMethodTextChanged(evt);
             }
         });
         tblGastos.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -454,9 +455,24 @@ public class Liquidacion extends javax.swing.JFrame {
             }
         });
 
+        totalUSTabla.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                totalUSTablaComponentAdded(evt);
+            }
+        });
         totalUSTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalUSTablaActionPerformed(evt);
+            }
+        });
+        totalUSTabla.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                totalUSTablaPropertyChange(evt);
+            }
+        });
+        totalUSTabla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                totalUSTablaKeyReleased(evt);
             }
         });
 
@@ -1005,7 +1021,7 @@ public class Liquidacion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtParidadventaActionPerformed
 
     private void txtResultadonetousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtResultadonetousMouseClicked
-        calculoVentaGasto();
+        //calculoVentaGasto();
         
     }//GEN-LAST:event_txtResultadonetousMouseClicked
 
@@ -1015,12 +1031,12 @@ public class Liquidacion extends javax.swing.JFrame {
     }//GEN-LAST:event_tblGastosKeyReleased
 
     private void tblGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGastosMouseClicked
-        int fila = tblGastos.rowAtPoint(evt.getPoint());
+        /*int fila = tblGastos.rowAtPoint(evt.getPoint());
         int columna = tblGastos.columnAtPoint(evt.getPoint());
         if (fila > -1){
             String valor = String.valueOf(tblGastos.getValueAt(fila, columna)).replace(" ", "");
             txtTotalventaus.setText(valor);
-        }
+        }*/
     }//GEN-LAST:event_tblGastosMouseClicked
 
     private void tblGastosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblGastosKeyTyped
@@ -1051,13 +1067,18 @@ public class Liquidacion extends javax.swing.JFrame {
     private void TotalMUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TotalMUCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TotalMUCActionPerformed
-
+    
     private void txtTotalventausActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalventausActionPerformed
         //multiploMUC();
     }//GEN-LAST:event_txtTotalventausActionPerformed
 
     private void totalUSTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalUSTablaActionPerformed
-        // TODO add your handling code here:
+        String memoria=totalUSTabla.getText();
+        if (!memoria.equals(totalUSTabla.getText())){
+         javax.swing.JOptionPane panel=null;
+         panel.showMessageDialog(null,"ha cambiado el texto");
+       
+       }
     }//GEN-LAST:event_totalUSTablaActionPerformed
 
     private void txtParidadajustadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParidadajustadaActionPerformed
@@ -1082,6 +1103,7 @@ public class Liquidacion extends javax.swing.JFrame {
 
     private void txtParidadajustadaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtParidadajustadaFocusLost
          setearParidad();
+         
     }//GEN-LAST:event_txtParidadajustadaFocusLost
 
     private void tblGastosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblGastosFocusLost
@@ -1118,6 +1140,18 @@ public class Liquidacion extends javax.swing.JFrame {
     private void tblGastosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblGastosAncestorAdded
         multiploMUC();
     }//GEN-LAST:event_tblGastosAncestorAdded
+
+    private void totalUSTablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_totalUSTablaKeyReleased
+
+    }//GEN-LAST:event_totalUSTablaKeyReleased
+
+    private void totalUSTablaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_totalUSTablaPropertyChange
+
+    }//GEN-LAST:event_totalUSTablaPropertyChange
+
+    private void totalUSTablaComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_totalUSTablaComponentAdded
+        
+    }//GEN-LAST:event_totalUSTablaComponentAdded
     
     private void calculoGlobal(){
         //calculoVentaGasto();
@@ -1163,10 +1197,24 @@ public class Liquidacion extends javax.swing.JFrame {
                         totalUS = Integer.parseInt(tblGastos.getModel().getValueAt(i, 4).toString())+totalUS;
                         totalUSTabla.setText(String.valueOf(totalUS));
                     }
+                    
                 }
+                txtTotalgastosus.setText(totalUSTabla.getText());
+                sumaTotales();
             }catch(Exception e){
             }
         TotalMUC.setText(String.valueOf(totalMUC));
+        }
+    }
+    private void sumaTotales(){
+        
+        if(txtTotalventaus.getText()!=null && txtTotalgastosus.getText()!=null){
+            String Totalventaus = txtTotalventaus.getText().replace(".", "");
+            String Totalgastosus = txtTotalgastosus.getText().replace(".", "");
+            /*javax.swing.JOptionPane panel=null;
+            panel.showMessageDialog(null,"Calculo");*/
+            int total = ((Integer.parseInt(Totalventaus))-(Integer.parseInt(Totalgastosus)));
+            txtResultadonetous.setText(String.valueOf(total));
         }
     }
     
