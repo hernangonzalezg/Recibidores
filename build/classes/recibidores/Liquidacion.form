@@ -278,13 +278,13 @@
                                   </Group>
                                   <Component id="lblGastosrecibidor" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" pref="329" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" pref="332" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="lblMonedaventa" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="cbmMonedaventa" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                                      <EmptySpace pref="59" max="32767" attributes="0"/>
                                       <Component id="lblParidadajustada" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblParidadventa" min="-2" max="-2" attributes="0"/>
@@ -347,7 +347,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="3">
-                            <StringItem index="0" value="Dolas U.S.A."/>
+                            <StringItem index="0" value="Dolar U.S.A."/>
                             <StringItem index="1" value="Euro"/>
                             <StringItem index="2" value="Yen"/>
                           </StringArray>
@@ -404,7 +404,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" attributes="0">
@@ -419,10 +419,10 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="lblDistribucionexcedentes" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="lblTotalgastosus" min="-2" max="-2" attributes="0"/>
                                                           <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
@@ -444,7 +444,7 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                                               <Component id="spnPorcentaje" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                                                   <Component id="lblValormgmonedaorigen" alignment="1" max="32767" attributes="0"/>
                                                                   <Component id="txtAnticipomonedaorigen" alignment="1" max="32767" attributes="0"/>
                                                                   <Group type="102" alignment="1" attributes="0">
@@ -454,8 +454,8 @@
                                                               </Group>
                                                           </Group>
                                                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="txtTotalgastosus" alignment="1" pref="137" max="32767" attributes="0"/>
-                                                              <Component id="txtTotalventaus" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtTotalgastosus" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtTotalventaus" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -471,8 +471,8 @@
                                                       <EmptySpace max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="txtAnticipous" alignment="1" max="32767" attributes="0"/>
-                                                          <Component id="txtValormgus" pref="141" max="32767" attributes="0"/>
-                                                          <Component id="txtResultadonetous" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="txtValormgus" max="32767" attributes="0"/>
+                                                          <Component id="txtResultadonetous" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
@@ -486,10 +486,20 @@
                                                       </Group>
                                                       <EmptySpace max="32767" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="txtSaldoliqus" max="32767" attributes="0"/>
-                                                          <Component id="txtSaldoliq" pref="141" max="32767" attributes="0"/>
+                                                          <Component id="txtSaldoliqus" min="-2" pref="141" max="-2" attributes="0"/>
+                                                          <Component id="txtSaldoliq" min="-2" pref="141" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                                  <Component id="lblDistribucionrecibidor" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="txtDistribucionrecibidor" min="-2" pref="135" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="lblDistribucionunifrutti" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="txtDistribucionunifrutti" min="-2" pref="140" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -500,19 +510,11 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jButton3" min="-2" pref="99" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnLotes" min="-2" pref="96" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                          <Component id="btnLotes" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                           <Component id="btnVolver" min="-2" pref="93" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnSalir" min="-2" pref="94" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                          <Component id="lblDistribucionrecibidor" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtDistribucionrecibidor" min="-2" pref="135" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblDistribucionunifrutti" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtDistribucionunifrutti" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -523,21 +525,31 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="TotalMUC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="totalUSTabla" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                      </Group>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane2" min="-2" pref="354" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="lblParidad" alignment="1" max="-2" attributes="0"/>
                                                       <Component id="lblValormonorigen" alignment="1" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Group type="102" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
                                                           <Component id="txtAnticipomonedaorigen" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                           <Component id="lblValormgmonedaorigen" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <Group type="102" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="3" attributes="0">
                                                               <Component id="txtAnticipoparidad" alignment="3" min="-2" max="-2" attributes="0"/>
                                                               <Component id="lblAnticipo" alignment="3" max="-2" attributes="0"/>
@@ -565,10 +577,10 @@
                                                       <Component id="txtTotalgastosus" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="filler2" min="-2" pref="1" max="-2" attributes="0"/>
+                                                  <Component id="filler2" min="-2" pref="2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="3" attributes="0">
                                                               <Component id="lblResultadonetous" alignment="3" min="-2" max="-2" attributes="0"/>
                                                               <Component id="txtResultadonetous" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -584,49 +596,43 @@
                                                       <Component id="txtValormgus" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                                  <Component id="filler1" min="-2" pref="1" max="-2" attributes="0"/>
+                                                  <Component id="filler1" min="-2" pref="2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="lblSaldoliqus" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtSaldoliqus" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblSaldoliq" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtSaldoliqparidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtSaldoliq" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="filler3" min="-2" pref="2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="lblDistribucionexcedentes" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblDistribucionrecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblDistribucionunifrutti" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtDistribucionrecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtDistribucionunifrutti" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <Component id="jScrollPane2" min="-2" pref="354" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lblSaldoliq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtSaldoliqparidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtSaldoliq" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="TotalMUC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="totalUSTabla" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="filler3" min="-2" pref="1" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblDistribucionexcedentes" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblDistribucionrecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDistribucionunifrutti" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDistribucionrecibidor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtDistribucionunifrutti" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton1" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jButton2" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="jButton3" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="btnLotes" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="jButton1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="jButton2" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="jButton3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="btnLotes" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnVolver" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnSalir" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="98" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>

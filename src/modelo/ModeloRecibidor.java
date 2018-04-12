@@ -26,7 +26,7 @@ public class ModeloRecibidor {
             ResultSet rs = cnn.consulta("SELECT L.N8CTEM, L.N8AARE, R.BJAENF FROM UNIDATOS.LEMBARC0 AS L "
                     + "INNER JOIN UNIDATOS.GRECIBI2 AS R ON L.N8CTEM=R.BJCTEM and L.N8AARE=R.BJAARE "
                     + "INNER JOIN UNIDATOS.VORDENV2 AS V ON L.N8CTEM=V.BHCTEM and L.N8ASNG=V.BHASNG "                    
-            + "WHERE L.N8CTEM='"+Tempo+"'"+" AND V.BHAAA1<>'0001' GROUP BY L.N8CTEM, L.N8AARE, R.BJAENF");                                    
+            + "WHERE L.N8CTEM='"+Tempo+"'"+" AND V.BHAAA1<>'0001' AND L.N8AARE IN ('1006', '3005', '5001', '5010') GROUP BY L.N8CTEM, L.N8AARE, R.BJAENF");                                    
             while(rs.next()){
                 cmbRecibidor.addItem(
                         new EntidadRecibidor(

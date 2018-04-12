@@ -155,11 +155,21 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLiquidacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiquidacionActionPerformed
+
         EntidadTemporada temporada= (EntidadTemporada) cmbTemporada.getSelectedItem();
-        Liquidacion liquidacion = new Liquidacion(temporada.getTemporada());
-        liquidacion.setVisible(true);
+//        //Inicio Llama a Ventana Liquidacion
+//        Liquidacion liquidacion = new Liquidacion(temporada.getTemporada());
+//        liquidacion.setVisible(true);
+//        
+//        liquidacion.lblDesTemporada.setText(temporada.getDescripcion());
+//        //Fin de la llamada a Ventana Liquidacion
         
-        liquidacion.lblDesTemporada.setText(temporada.getDescripcion());
+        //Inicio Llama a Ventana Liquidaciones
+        Liquidaciones liquidaciones = new Liquidaciones(temporada.getTemporada());
+        liquidaciones.setVisible(true);
+        
+        liquidaciones.lblDesTemporada.setText(temporada.getDescripcion());        
+        //Fin de la llamada a Ventana Liquidaciones
         
 //        this.setVisible(false);
     }//GEN-LAST:event_btnLiquidacionActionPerformed
