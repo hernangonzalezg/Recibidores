@@ -12,8 +12,13 @@ import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelo.ConexionBD;
+import modelo.ModeloEncabDetalle;
+import modelo.ModeloNave;
+import modelo.ModeloOv;
 import modelo.ModeloRecibidor;
 import template.MiModelo;
 
@@ -338,8 +343,8 @@ public class Liquidaciones extends javax.swing.JFrame {
 
             EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
 
-//                        ModeloNave MN = new ModeloNave();
-//                        MN.mostrarNave(cmbNave, this.lblTemporada.getText(), Recibidor.getCodigorec());
+                        ModeloNave MN = new ModeloNave();
+                        MN.mostrarNave(cmbNave, this.lblTemporada.getText(), Recibidor.getCodigorec());
 
             if (Recibidor.getTemporada()!= ""){
                 //CARGAR TABLA
@@ -374,19 +379,20 @@ public class Liquidaciones extends javax.swing.JFrame {
 
     private void cmbRecibidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRecibidorActionPerformed
 
+        
     }//GEN-LAST:event_cmbRecibidorActionPerformed
 
     private void cmbNaveItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbNaveItemStateChanged
-        //        if (evt.getStateChange() == ItemEvent.SELECTED){
-            //            cmbOv.removeAllItems();
-            //
-            //            EntidadNave Nave = (EntidadNave) cmbNave.getSelectedItem();
-            //            txtViaje.setText(String.valueOf(Nave.getViaje()));
-            //
-            //            EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
-            //            ModeloOv MO = new ModeloOv();
-            //            MO.mostrarOv(cmbOv, this.lblTemporada.getText(), Recibidor.getCodigorec(), Nave.getCorrelativo());
-            //        }        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED){
+            cmbOv.removeAllItems();
+            
+            EntidadNave Nave = (EntidadNave) cmbNave.getSelectedItem();
+            txtViaje.setText(String.valueOf(Nave.getViaje()));
+            
+            EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
+            ModeloOv MO = new ModeloOv();
+            MO.mostrarOv(cmbOv, this.lblTemporada.getText(), Recibidor.getCodigorec(), Nave.getCorrelativo());
+        }
     }//GEN-LAST:event_cmbNaveItemStateChanged
 
     private void cmbNaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNaveActionPerformed
@@ -411,6 +417,17 @@ public class Liquidaciones extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
+        
+        //PRUEBA DE LLAMADA A MODELO ENCABEZADO DETALLE
+            int Liquidac = 32;
+            ModeloEncabDetalle MED = new ModeloEncabDetalle();
+        try {
+            MED.consultarEncabDetalle(this.lblTemporada.getText(), Recibidor.getCodigorec(), Liquidac);
+        } catch (SQLException ex) {
+            Logger.getLogger(Liquidaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //FIN PRUEBA
+        
         //Inicio Llama a Ventana Liquidacion
         Liquidacion liquidacion = new Liquidacion(this.lblTemporada.getText(), Recibidor.getCodigorec(), Recibidor.getNombre());
         liquidacion.setVisible(true);
