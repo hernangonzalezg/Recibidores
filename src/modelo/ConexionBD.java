@@ -45,7 +45,8 @@ public class ConexionBD {
         //System.out.println("SQL : "+sql);
         try{
             PreparedStatement ps = cnn.prepareStatement(sql);
-            //System.out.println("PSSSSS : " + ps);
+//            System.out.println("SQL : " + sql);
+//            System.out.println("PS  : " + ps);
             rs = ps.executeQuery();
         }catch(SQLException e){
             System.out.println("Error consulta : "+ e.getMessage());
