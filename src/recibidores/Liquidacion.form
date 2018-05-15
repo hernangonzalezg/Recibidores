@@ -421,74 +421,72 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="lblDistribucionexcedentes" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="lblTotalgastosus" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblTotalventaus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="lblAnticipo" max="-2" attributes="0"/>
-                                                                  <Component id="lblValormg" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="txtValormgparidad" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
-                                                                  <Component id="txtAnticipoparidad" min="-2" pref="121" max="-2" attributes="0"/>
-                                                                  <Component id="lblParidad" alignment="0" max="-2" attributes="0"/>
-                                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblTotalgastosus" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblPorcentaje" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblTotalventaus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="lblAnticipo" max="-2" attributes="0"/>
+                                                              <Component id="lblValormg" alignment="1" min="-2" max="-2" attributes="0"/>
                                                           </Group>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                              <Component id="spnPorcentaje" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="lblValormgmonedaorigen" alignment="1" max="32767" attributes="0"/>
-                                                                  <Component id="txtAnticipomonedaorigen" alignment="1" max="32767" attributes="0"/>
-                                                                  <Group type="102" alignment="1" attributes="0">
-                                                                      <Component id="lblValormonorigen" max="-2" attributes="0"/>
-                                                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                          </Group>
-                                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="txtTotalgastosus" alignment="1" max="32767" attributes="0"/>
-                                                              <Component id="txtTotalventaus" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="txtValormgparidad" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                                              <Component id="txtAnticipoparidad" min="-2" pref="121" max="-2" attributes="0"/>
+                                                              <Component id="lblParidad" alignment="0" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <Component id="filler2" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="filler3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="filler1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="lblAnticipous" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblValormgus" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblResultadonetous" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                          <Component id="spnPorcentaje" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="lblValormgmonedaorigen" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtAnticipomonedaorigen" alignment="1" max="32767" attributes="0"/>
+                                                              <Group type="102" alignment="1" attributes="0">
+                                                                  <Component id="lblValormonorigen" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
                                                       </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="txtAnticipous" alignment="1" max="32767" attributes="0"/>
-                                                          <Component id="txtValormgus" max="32767" attributes="0"/>
-                                                          <Component id="txtResultadonetous" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="txtTotalgastosus" alignment="1" max="32767" attributes="0"/>
+                                                          <Component id="txtTotalventaus" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="lblSaldoliq" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                                              <Component id="txtSaldoliqparidad" min="-2" pref="119" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="lblSaldoliqus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="filler2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="filler3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="filler1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblAnticipous" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblValormgus" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblResultadonetous" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txtAnticipous" alignment="1" max="32767" attributes="0"/>
+                                                      <Component id="txtValormgus" max="32767" attributes="0"/>
+                                                      <Component id="txtResultadonetous" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="lblSaldoliq" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                                          <Component id="txtSaldoliqparidad" min="-2" pref="119" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="txtSaldoliqus" min="-2" pref="141" max="-2" attributes="0"/>
-                                                          <Component id="txtSaldoliq" min="-2" pref="141" max="-2" attributes="0"/>
-                                                      </Group>
+                                                      <Component id="lblSaldoliqus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txtSaldoliqus" min="-2" pref="141" max="-2" attributes="0"/>
+                                                      <Component id="txtSaldoliq" min="-2" pref="141" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -632,7 +630,7 @@
                                       <Component id="btnVolver" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnSalir" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>

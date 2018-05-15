@@ -5,6 +5,7 @@
  */
 package recibidores;
 
+import Entidad.EntidadDetalleLote;
 import template.MiModelo;
 import Entidad.EntidadNave;
 import Entidad.EntidadOv;
@@ -19,17 +20,20 @@ import modelo.ModeloNave;
 import modelo.ModeloOv;
 import modelo.ModeloRecibidor;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import modelo.ModeloEncabDetalle;
 
 public class Liquidacion extends javax.swing.JFrame {
 
     String CodigoTemporada;
     String Codigorec;
     String Nombre;
-    public Liquidacion(String CodigoTemporada, String Codigorec, String Nombre) {
+    
+    public Liquidacion(String CodigoTemporada, String Codigorec, String Nombre, String indicador, ArrayList<EntidadDetalleLote> detalle) {
         
         //INICIO CAMBIA A WINDOWS
         try {
@@ -49,35 +53,80 @@ public class Liquidacion extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Liquidacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //FIN CAMBIA A WINDOWS
-     
-        initComponents();
-        cmbRecibidor.removeAllItems();
-        cmbNave.removeAllItems();
-
-        lblTemporada.setText(CodigoTemporada);
-        //05-04-18 Comente por enviar Recibidor por parametro
-        //ModeloRecibidor MR = new ModeloRecibidor();
-        //MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
-        EntidadRecibidor Recibidor = null;
-                Recibidor=new EntidadRecibidor();
-                        Recibidor.setTemporada(CodigoTemporada);
-                        Recibidor.setCodigorec(Codigorec);
-                        Recibidor.setNombre(Nombre);
-        cmbRecibidor.addItem(      
-                new EntidadRecibidor(
-                        Recibidor.getTemporada(),
-                        Recibidor.getCodigorec(),
-                        Recibidor.getNombre()
-                )
-        );
-        //Fin de carga de Combo Recibidores
         
-        //BLOQUEO DE CAJAS DE TEXTO
-        //txtTotalgastosus.setEditable(false); 
-        txtResultadonetous.setEditable(false);
-        TotalMUC.setEnabled(false);
-        totalUSTabla.setEditable(false);
-        spnPorcentaje.setValue(100);
+             
+        //VALIDACION CARGAR O NUEVA LIQUIDACION        
+        if(indicador.equals("cargar")){
+            initComponents();
+            cmbRecibidor.removeAllItems();
+            cmbNave.removeAllItems();
+
+            lblTemporada.setText(CodigoTemporada);
+            //05-04-18 Comente por enviar Recibidor por parametro
+            //ModeloRecibidor MR = new ModeloRecibidor();
+            //MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
+            EntidadRecibidor Recibidor = null;
+                    Recibidor=new EntidadRecibidor();
+                            Recibidor.setTemporada(CodigoTemporada);
+                            Recibidor.setCodigorec(Codigorec);
+                            Recibidor.setNombre(Nombre);
+            cmbRecibidor.addItem(      
+                    new EntidadRecibidor(
+                            Recibidor.getTemporada(),
+                            Recibidor.getCodigorec(),
+                            Recibidor.getNombre()
+                    )
+            );
+            //Fin de carga de Combo Recibidores
+
+            //BLOQUEO DE CAJAS DE TEXTO
+            //txtTotalgastosus.setEditable(false); 
+            txtResultadonetous.setEditable(false);
+            TotalMUC.setEnabled(false);
+            totalUSTabla.setEditable(false);
+            spnPorcentaje.setValue(100);
+            
+            //CARGAR DETALLE
+            
+            //monto mc
+            detalle.get(0).getVgasto();
+            
+            //paridad
+            detalle.get(0).getVparidad();
+            
+            tblGastos.getModel().setValueAt(detalle.get(0).getVparidad(), 0, 3);
+            
+        }else{
+
+            initComponents();
+            cmbRecibidor.removeAllItems();
+            cmbNave.removeAllItems();
+
+            lblTemporada.setText(CodigoTemporada);
+            //05-04-18 Comente por enviar Recibidor por parametro
+            //ModeloRecibidor MR = new ModeloRecibidor();
+            //MR.mostrarRecibidor(cmbRecibidor, this.lblTemporada.getText());   
+            EntidadRecibidor Recibidor = null;
+                    Recibidor=new EntidadRecibidor();
+                            Recibidor.setTemporada(CodigoTemporada);
+                            Recibidor.setCodigorec(Codigorec);
+                            Recibidor.setNombre(Nombre);
+            cmbRecibidor.addItem(      
+                    new EntidadRecibidor(
+                            Recibidor.getTemporada(),
+                            Recibidor.getCodigorec(),
+                            Recibidor.getNombre()
+                    )
+            );
+            //Fin de carga de Combo Recibidores
+
+            //BLOQUEO DE CAJAS DE TEXTO
+            //txtTotalgastosus.setEditable(false); 
+            txtResultadonetous.setEditable(false);
+            TotalMUC.setEnabled(false);
+            totalUSTabla.setEditable(false);
+            spnPorcentaje.setValue(100);
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

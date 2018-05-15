@@ -5,6 +5,7 @@
  */
 package recibidores;
 
+import Entidad.EntidadDetalleLote;
 import Entidad.EntidadNave;
 import Entidad.EntidadOv;
 import Entidad.EntidadRecibidor;
@@ -12,11 +13,13 @@ import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelo.ConexionBD;
 import modelo.ModeloEncabDetalle;
+import modelo.ModeloEncabezado;
 import modelo.ModeloNave;
 import modelo.ModeloOv;
 import modelo.ModeloRecibidor;
@@ -246,6 +249,11 @@ public class Liquidaciones extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblLotes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblLotesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblLotes);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -417,7 +425,7 @@ public class Liquidaciones extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
-        
+        ArrayList<EntidadDetalleLote> detalle=null;
         //PRUEBA DE LLAMADA A MODELO ENCABEZADO DETALLE
             int Liquidac = 32;
             ModeloEncabDetalle MED = new ModeloEncabDetalle();
@@ -429,16 +437,40 @@ public class Liquidaciones extends javax.swing.JFrame {
         //FIN PRUEBA
         
         //Inicio Llama a Ventana Liquidacion
-        Liquidacion liquidacion = new Liquidacion(this.lblTemporada.getText(), Recibidor.getCodigorec(), Recibidor.getNombre());
+        Liquidacion liquidacion = new Liquidacion(this.lblTemporada.getText(), Recibidor.getCodigorec(), Recibidor.getNombre(),"",detalle);
         liquidacion.setVisible(true);
         
         liquidacion.lblDesTemporada.setText(this.lblDesTemporada.getText());
         //Fin de la llamada a Ventana Liquidacion
     }//GEN-LAST:event_btnNuevoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void tblLotesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLotesMouseClicked
+        try {
+            cargarLiquidacion(evt);
+        } catch (SQLException ex) {
+            Logger.getLogger(Liquidaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tblLotesMouseClicked
+    private void cargarLiquidacion(java.awt.event.MouseEvent evt) throws SQLException{
+        int fila = tblLotes.rowAtPoint(evt.getPoint());
+        ModeloEncabDetalle med = new ModeloEncabDetalle();
+        ArrayList<EntidadDetalleLote> detalle = new ArrayList();
+        EntidadRecibidor Recibidor = (EntidadRecibidor) cmbRecibidor.getSelectedItem();
+        
+        String cadena = tblLotes.getValueAt(fila, 0).toString();
+        
+        int numEntero = Integer.parseInt(cadena);
+        detalle = med.consultarEncabDetalle(lblTemporada.getText(), Recibidor.getCodigorec(),numEntero) ;
+        
+        
+        Liquidacion liquidacion = new Liquidacion(this.lblTemporada.getText(), Recibidor.getCodigorec(), 
+                Recibidor.getNombre(),"cargar", detalle);
+        liquidacion.setVisible(true);
+        
+        
+        
+       
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
